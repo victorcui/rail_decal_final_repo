@@ -1,5 +1,6 @@
 %h1 if you want to confess do it here!
 - @posts.each do |post|
 	%h2= post.title= link_to post.title, post
-
-= link_to "confess here", new_post_path
+	%p
+		confessed by
+		= post.user.email

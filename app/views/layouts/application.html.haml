@@ -1,0 +1,20 @@
+!!!
+%html
+%head
+	%title A ConfessBoard for Berkeley students
+	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= csrf_meta_tags
+
+%body
+	%header
+		#buttons
+			- if user_signed_in?
+				= link_to "Confess here!", new_post_path
+			- else
+				= link_to "SIGN UP", new_user_registration_path
+				= link_to "SIGN IN", new_user_session_path
+	%p.notice= notice
+	%p.alert= alert
+
+	=yield
