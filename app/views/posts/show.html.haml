@@ -1,13 +1,12 @@
-%h1 here is a confession
+%h1 Confession
 %h2= @post.title
 %p= @post.content
-	
-#commnets
-	%h2 Here are the comments to this confession
+
+#comments
+	%h2 Comments:
 	= render @post.comments
 
-	%h3 Say what u want to this confession
+	%h3 New Comment
 	= render "comments/form"
-= link_to "the home page", root_path
-= link_to "EDIT your confession", edit_post_path(@post)
-= link_to "let it GO", post_path(@post), method: :delete
+= link_to "Edit", edit_post_path(@post)
+= link_to "Let It Go?", post_path(@post), method: :delete

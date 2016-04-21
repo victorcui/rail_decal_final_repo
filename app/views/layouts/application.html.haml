@@ -1,20 +1,31 @@
 !!!
 %html
-%head
-	%title A ConfessBoard for Berkeley students
-	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
-	= javascript_include_tag 'application', 'data-turbolinks-track' => true
-	= csrf_meta_tags
+	%head
+		%title A ConfessBoard for Berkeley students
+		%link{:rel => :stylesheet, :type => :"text/css", :href => "https://fonts.googleapis.com/css?family=Open+Sans"}
+		%link{:rel => :stylesheet, :type => :"text/css", :href => "https://fonts.googleapis.com/css?family=Merriweather"}
+		%link{:rel => :stylesheet, :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :integrity => "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", :crossorigin => "anonymous"}
+		%script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", :integrity => "sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", :crossorigin => "anonymous"}
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
 
-%body
-	%header
-		#buttons
-			- if user_signed_in?
-				= link_to "Confess here!", new_post_path
-			- else
-				= link_to "SIGN UP", new_user_registration_path
-				= link_to "SIGN IN", new_user_session_path
-	%p.notice= notice
-	%p.alert= alert
+	%body
+		%nav.navbar
+			%div.container-fluid
+				%div.navbar-header
+					= link_to "ConfessBoard", root_path, :class => "navbar-brand"
 
-	=yield
+				%div.collapse.navbar-collapse
+					%ul.nav.navbar-nav.navbar-right
+						- if user_signed_in?
+							%li.active= link_to "Confess!", new_post_path
+							%li.active= link_to "Sign Out", destroy_user_session_path, :method => :delete
+						- else
+							%li.active= link_to "Sign Up", new_user_registration_path, :class => "active"
+							%li.active= link_to "Sign In", new_user_session_path
+
+		.container
+			%p.notice= notice
+			%p.alert= alert
+			=yield

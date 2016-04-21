@@ -1,4 +1,6 @@
-.comment-wrapper
-	%p= comment.comment
-
-	= link_to "Delete This thing", [comment.post, comment], method: :delete
+%p.comment
+	%b
+		= comment.user.email
+		says:
+	= comment.comment
+= link_to "Delete", [comment.post, comment], method: :delete
