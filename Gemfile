@@ -33,6 +33,7 @@ gem 'simple_form'
 
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'devise', '~> 4.0'
+gem 'seed_dump'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
