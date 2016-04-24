@@ -1,7 +1,8 @@
 Title: ConfessBoard
 Team Members: Cheng Cui, Kai-Sern Lim, Elton Lou, Nancy Chang 
 TA: Warren Shen 
-Demo Link: 
+Demo Link: https://lit-everglades-77869.herokuapp.com
+screencast: 
 Git hub: https://github.com/victorcui/rail_decal_final_repo
 Idea: An application where users can make confession and update, delete them. Users can also comment on other’s confession
 
